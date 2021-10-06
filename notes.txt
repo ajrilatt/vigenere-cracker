@@ -1,0 +1,27 @@
+[a-z] => super quick
+  core 1, [a-z]
+
+[a-z][a-z] => 52 / core
+  core 1, [a,b][a-z]
+  core 2, [c,d][a-z]
+  core 3, [e,f][a-z]
+  core 4, [g,h][a-z]
+  core 5, [i,j][a-z]
+  core 6, [k,l][a-z]
+  core 7, [m,n][a-z]
+  core 8, [o,p][a-z]
+  core 9, [q,r][a-z]
+  core A, [s,t][a-z]
+  core B, [u,v,w][a-z]
+  core C  [x,y,z][a-z]
+
+iteration x:
+
+  split the task among 12 cores
+  wait for the cores to finish (join does this I think)
+
+  per core:
+    try all iterations of depth x in the 1/12 of combos allocated to this core
+    store the key with the best chi2
+
+  get the best result from all cores, check if it's deciphered yet
